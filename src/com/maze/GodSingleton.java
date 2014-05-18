@@ -1,11 +1,9 @@
 package com.maze;
 import java.util.Random;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Бог. Паттерн Синглтон.
- * Бог есть мир.  Паттерн Фабрика.
+ * God. Singleton Pattern.
+ * God is a beginning of everything. Factory method pattern.
  */
 public class GodSingleton {
 
@@ -13,8 +11,6 @@ public class GodSingleton {
     public static final char DIR_SOUTH = 'S';
     public static final char DIR_WEST = 'W';
     public static final char DIR_EAST = 'E';
-
-    private final Map world = new HashMap();
 
     /**
      * Генератор случайных чисел
@@ -41,20 +37,10 @@ public class GodSingleton {
     }
 
     /**
-     * Добавляет обьект в мир.
+     * Creates maze.
+     * @return Maze
      */
-    public void create(String name, Object entity) {
-        this.world.put(name, entity);
-    }
-
-    /**
-     * Возвращает ссылку на объект мира
-     * для операций.
-     *
-     * @param name String
-     * @return Object
-     */
-    public Object access(String name) {
-        return this.world.get(name);
+    public Maze createMaze() {
+        return new Maze();
     }
 }
