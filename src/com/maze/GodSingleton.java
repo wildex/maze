@@ -43,4 +43,12 @@ public class GodSingleton {
     public Maze createMaze() {
         return new Maze();
     }
+
+    /**
+     * Creates player.
+     * @return Player
+     */
+    public Player createPlayer() {
+        return new Player();
+    }
 }

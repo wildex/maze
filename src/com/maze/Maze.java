@@ -9,6 +9,7 @@ public class Maze {
 
     private RoomBuilder _roomBuilder;
     private Map<Integer, Room> _rooms = new HashMap<Integer, Room>();
+    private Player _player;
 
     public void setRoomBuilder(RoomBuilder rb) {
         this._roomBuilder = rb;
@@ -23,5 +24,9 @@ public class Maze {
 
     public int getRoomsCount() {
         return _rooms.size();
+    }
+
+    public void addPlayer(Player player) {
+        this._player = player;
     }
 }
