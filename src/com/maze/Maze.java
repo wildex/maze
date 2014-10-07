@@ -4,11 +4,13 @@ import java.util.HashMap;
 
 /**
  * Лабиринт
+ * Observer pattern: Observer
  */
 public class Maze {
 
     private RoomBuilder _roomBuilder;
     private Map<Integer, Room> _rooms = new HashMap<Integer, Room>();
+    private int _playerRoomId;
     private Player _player;
 
     public void setRoomBuilder(RoomBuilder rb) {
@@ -28,5 +30,16 @@ public class Maze {
 
     public void addPlayer(Player player) {
         this._player = player;
+        this._playerRoomId = this._rooms.get(0).getId();
+    }
+
+    public void update() {
+        char direction = this._player.getMoveDirection();
+        if(this._rooms.get(this._playerRoomId).hasExit(direction)) {
+            System.out.println("Exit Available!");
+        }
+        else {
+            System.out.println("No exit, sorry :(");
+        }
     }
 }

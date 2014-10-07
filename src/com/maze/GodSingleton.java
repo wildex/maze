@@ -41,7 +41,10 @@ public class GodSingleton {
      * @return Maze
      */
     public Maze createMaze() {
-        return new Maze();
+        Maze maze = new Maze();
+        maze.setRoomBuilder(new RandomRoomBuilder());
+        maze.addRoom();
+        return maze;
     }
 
     /**
@@ -49,6 +52,9 @@ public class GodSingleton {
      * @return Player
      */
     public Player createPlayer() {
-        return new Player();
+        /**
+         * @TODO: Добавить какой то ИНТЕРЕСНЫЙ алгоритм генерации имени
+         */
+        return new Player("dummy");
     }
 }

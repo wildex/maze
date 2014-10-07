@@ -11,7 +11,6 @@ public class RandomRoomBuilder extends RoomBuilder {
      */
     public void generateRoomId(int lastId) {
         this._room.setId(lastId++);
-        System.out.println(lastId);
     }
     
     /**
