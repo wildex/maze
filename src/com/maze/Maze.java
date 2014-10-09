@@ -17,11 +17,12 @@ public class Maze {
         this._roomBuilder = rb;
     }
 
-    public void addRoom() {
+    public int addRoom() {
         this._roomBuilder.createRoom();
         this._roomBuilder.generateRoomId(this.getRoomsCount());
         this._roomBuilder.generateRoomExits();
         this._rooms.put(this._roomBuilder.getRoom().getId(), this._roomBuilder.getRoom());
+        return this._roomBuilder.getRoom().getId();
     }
 
     public int getRoomsCount() {
@@ -35,11 +36,8 @@ public class Maze {
 
     public void update() {
         char direction = this._player.getMoveDirection();
-        if(this._rooms.get(this._playerRoomId).hasExit(direction)) {
-            System.out.println("Exit Available!");
-        }
-        else {
-            System.out.println("No exit, sorry :(");
+        if(this._rooms.get(this._playerRoomId).hasExit(this._player.getMoveDirection())) {
+            this._playerRoomId = this.addRoom();
         }
     }
 }

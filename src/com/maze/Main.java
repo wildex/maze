@@ -7,5 +7,6 @@ public class Main {
         Player player = God.createPlayer();
         player.enterMaze(maze);
         player.move('N');
+        System.out.print(maze.getRoomsCount());
     }
 }
