@@ -1,6 +1,7 @@
 package com.maze;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Лабиринт
@@ -38,6 +39,15 @@ public class Maze {
         char direction = this._player.getMoveDirection();
         if(this._rooms.get(this._playerRoomId).hasExit(this._player.getMoveDirection())) {
             this._playerRoomId = this.addRoom();
+        }
+    }
+
+    public void printMaze() {
+        Iterator it = this._rooms.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pairs = (Map.Entry)it.next();
+            System.out.println(pairs.getKey() + " = " + pairs.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
         }
     }
 }

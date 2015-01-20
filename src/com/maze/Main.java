@@ -16,12 +16,8 @@ public class Main {
             System.out.print("What we do: ");
             try{
                 command = br.readLine().charAt(0);
-                if(command == 'P') {
-                    //@TODO: print current maze state here!
-                }
-                else {
-                    player.move(command);
-                }
+                player.move(command);
+                maze.printMaze();
             }catch(IOException ex){
                 System.err.println("Word halt!");
             }
